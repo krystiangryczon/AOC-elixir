@@ -4,7 +4,7 @@ defmodule My.Utils do
     content |> String.split("\r\n", trim: true)
   end
 
-  def split_file(file) do
-    file |> String.split("\n", trim: true)
+  def split_file(file, on \\ "\n") do
+    file |> String.split(on, trim: true)
   end
 end
