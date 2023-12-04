@@ -19,6 +19,5 @@ defmodule Advent.Code4_1 do
     |> Enum.map(fn el -> length(MapSet.to_list(el)) end)
     |> Enum.filter(fn el -> el != 0 end)
     |> Enum.reduce(0, fn el, acc -> (acc + :math.pow(2, el - 1)) |> round end)
-    |> dbg()
   end
 end

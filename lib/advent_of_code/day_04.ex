@@ -3,6 +3,7 @@ defmodule AdventOfCode.Day04 do
     Advent.Code4_1.execute(inp)
   end
 
-  def part2(_args) do
+  def part2(inp) do
+    Advent.Code4_2.execute(inp)
   end
 end

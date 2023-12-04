@@ -3,7 +3,7 @@ defmodule AdventOfCode.Day04Test do
 
   import AdventOfCode.Day04
 
-  def test_input1(),
+  def test_input(),
     do: """
     Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
     Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
@@ -14,17 +14,16 @@ defmodule AdventOfCode.Day04Test do
     """
 
   test "part1" do
-    input = test_input1()
+    input = test_input()
     result = part1(My.Utils.split_file(input, "\n"))
 
     assert result == 13
   end
 
-  @tag :skip
   test "part2" do
-    input = nil
-    result = part2(input)
+    input = test_input()
+    result = part2(My.Utils.split_file(input, "\n"))
 
-    assert result
+    assert result == 30
   end
 end
