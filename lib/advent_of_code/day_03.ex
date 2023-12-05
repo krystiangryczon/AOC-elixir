@@ -4,6 +4,7 @@ defmodule AdventOfCode.Day03 do
   end
 
   def part2(input) do
-    Advent.Code3_2.execute(input)
+    # Advent.Code3_2.execute(input)
+    input
   end
 end

@@ -37,9 +37,7 @@ defmodule Advent.Code3_1 do
     |> Enum.map(fn el -> String.graphemes(el) end)
   end
 
-  def check_around(inp, curr, i, j, visited) do
-    current = inp |> at(i) |> at(j)
-
+  def check_around(inp, curr, i, j, _visited) do
     valid_around =
       is_valid_symbol(inp |> at(i - 1) |> at(j - 1)) ||
         is_valid_symbol(inp |> at(i - 1) |> at(j)) ||

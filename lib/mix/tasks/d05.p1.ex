@@ -8,10 +8,10 @@ defmodule Mix.Tasks.D05.P1 do
     input = nil
 
     if Enum.member?(args, "-b"),
-      do: Benchee.run(%{part_1: fn -> input |> part1() end}),
+      do: Benchee.run(%{part_1: fn -> input |> part1("\r\n") end}),
       else:
         input
-        |> part1()
+        |> part1("\r\n")
         |> IO.inspect(label: "Part 1 Results")
   end
 end
