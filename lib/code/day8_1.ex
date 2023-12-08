@@ -15,12 +15,14 @@ defmodule Advent.D08 do
     %{instructions: String.graphemes(instructions), nodes: parsed_nodes}
   end
 
-  def find_next(current_key, [], nodes, steps, og_instr),
-    do: find_next(current_key, og_instr, nodes, steps, og_instr)
+  def find_next(current_key, [], nodes, steps, og_instr, goal),
+    do: find_next(current_key, og_instr, nodes, steps, og_instr, goal)
 
-  def find_next("ZZZ", _instructions, _nodes, steps, _og_instr), do: steps
+  def find_next(current_key, _instructions, _nodes, steps, _og_instr, goal)
+      when current_key == goal,
+      do: steps
 
-  def find_next(current_key, instructions, nodes, steps, og_instr) do
+  def find_next(current_key, instructions, nodes, steps, og_instr, goal) do
     [dir | rest_instr] = instructions
 
     cond do
@@ -30,7 +32,8 @@ defmodule Advent.D08 do
           rest_instr,
           nodes,
           steps + 1,
-          og_instr
+          og_instr,
+          goal
         )
 
       dir == "R" ->
@@ -39,11 +42,12 @@ defmodule Advent.D08 do
           rest_instr,
           nodes,
           steps + 1,
-          og_instr
+          og_instr,
+          goal
         )
 
       true ->
-        IO.inspect(nodes)
+        {:error, "You done goof"}
     end
   end
 end

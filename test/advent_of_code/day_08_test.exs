@@ -3,7 +3,7 @@ defmodule AdventOfCode.Day08Test do
 
   import AdventOfCode.Day08
 
-  defp test_input(),
+  defp test_input,
     do: """
     RL
 
@@ -16,7 +16,7 @@ defmodule AdventOfCode.Day08Test do
     ZZZ = (ZZZ, ZZZ)
     """
 
-  defp test_input1(),
+  defp test_input1,
     do: """
     LLR
 
@@ -26,7 +26,7 @@ defmodule AdventOfCode.Day08Test do
     """
 
   # @tag :skip
-  test "part1" do
+  test "part1.1" do
     input = test_input()
     result = part1(input)
 
@@ -40,9 +40,22 @@ defmodule AdventOfCode.Day08Test do
     assert result == 6
   end
 
-  @tag :skip
+  def test_input2,
+    do: """
+    LR
+
+    11A = (11B, XXX)
+    11B = (XXX, 11Z)
+    11Z = (11B, XXX)
+    22A = (22B, XXX)
+    22B = (22C, 22C)
+    22C = (22Z, 22Z)
+    22Z = (22B, 22B)
+    XXX = (XXX, XXX)
+    """
+
   test "part2" do
-    input = nil
+    input = test_input2()
     result = part2(input)
 
     assert result == 6
