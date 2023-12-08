@@ -1,4 +1,4 @@
-defmodule Advent.D08 do
+defmodule Advent.D08_01 do
   defp parse_line(line) do
     [key, left, right] =
       line |> String.split(~r/[\s=\(\),]/) |> Enum.filter(fn el -> String.length(el) > 0 end)

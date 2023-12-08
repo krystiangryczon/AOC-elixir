@@ -11,14 +11,10 @@ defmodule Advent.D08_02 do
   def gcd(x, 0), do: x
   def gcd(x, y), do: gcd(y, rem(x, y))
 
-  def find_next(current_key, [], nodes, steps, og_instr, goal),
-    do: find_next(current_key, og_instr, nodes, steps, og_instr, goal)
+  def find_next(current_key, [], nodes, steps, og_instr),
+    do: find_next(current_key, og_instr, nodes, steps, og_instr)
 
-  def find_next(current_key, _instructions, _nodes, steps, _og_instr, goal)
-      when current_key == goal,
-      do: steps
-
-  def find_next(current_key, instructions, nodes, steps, og_instr, goal) do
+  def find_next(current_key, instructions, nodes, steps, og_instr) do
     [dir | rest_instr] = instructions
 
     if(String.ends_with?(current_key, "Z")) do
@@ -31,8 +27,7 @@ defmodule Advent.D08_02 do
             rest_instr,
             nodes,
             steps + 1,
-            og_instr,
-            goal
+            og_instr
           )
 
         dir == "R" ->
@@ -41,8 +36,7 @@ defmodule Advent.D08_02 do
             rest_instr,
             nodes,
             steps + 1,
-            og_instr,
-            goal
+            og_instr
           )
 
         true ->
