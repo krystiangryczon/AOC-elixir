@@ -1,11 +1,4 @@
 defmodule Advent.Code1_2 do
-  def is_num(x) do
-    case Integer.parse(x, 10) do
-      {num, _} -> num
-      :error -> false
-    end
-  end
-
   def combine(str) do
     Integer.to_string(digit_from_left(str)) <> Integer.to_string(digit_from_right(str))
   end
@@ -38,7 +31,7 @@ defmodule Advent.Code1_2 do
 
     digit =
       String.graphemes(from_start_to_smallest)
-      |> Enum.map(fn x -> is_num(x) end)
+      |> Enum.map(fn x -> My.Utils.string_to_num_or_false(x) end)
       |> Enum.filter(fn x -> x != false end)
 
     cond do
@@ -63,7 +56,7 @@ defmodule Advent.Code1_2 do
 
     digit =
       String.graphemes(from_biggest_to_end)
-      |> Enum.map(fn x -> is_num(x) end)
+      |> Enum.map(fn x -> My.Utils.string_to_num_or_false(x) end)
       |> Enum.filter(fn x -> x != false end)
 
     cond do
@@ -74,7 +67,7 @@ defmodule Advent.Code1_2 do
 
   def sum_list(str_list) do
     Enum.reduce([0 | str_list], fn el, acc ->
-      acc + is_num(combine(el))
+      acc + My.Utils.string_to_num_or_false(combine(el))
     end)
   end
 end
