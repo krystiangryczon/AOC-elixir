@@ -8,6 +8,10 @@ defmodule My.Utils do
     file |> String.split(on, trim: true)
   end
 
+  def split(str, on \\ " ") do
+    str |> String.split(on, trim: true)
+  end
+
   def string_to_num_or_false(x) do
     case Integer.parse(x, 10) do
       {num, _} -> num

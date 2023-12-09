@@ -1,4 +1,6 @@
 defmodule Advent.D09_01 do
+  alias My.Utils
+
   defp calc_next([], next), do: next
 
   defp calc_next(curr, next) do
@@ -20,13 +22,12 @@ defmodule Advent.D09_01 do
     end
   end
 
-  @sep "\n"
   def parse_input(inp) do
     inp
-    |> String.split(@sep, trim: true)
+    |> Utils.split_file()
     |> Enum.map(fn sublist ->
-      Enum.map(String.split(sublist, " ", trim: true), fn el ->
-        My.Utils.string_to_num_or_false(el)
+      Enum.map(Utils.split(sublist), fn el ->
+        Utils.string_to_num_or_false(el)
       end)
     end)
   end
