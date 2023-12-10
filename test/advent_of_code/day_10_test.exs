@@ -3,12 +3,20 @@ defmodule AdventOfCode.Day10Test do
 
   import AdventOfCode.Day10
 
-  @tag :skip
+  def test_input1,
+    do: """
+    ..F7.
+    .FJ|.
+    SJ.L7
+    |F--J
+    LJ...
+    """
+
   test "part1" do
-    input = nil
+    input = test_input1()
     result = part1(input)
 
-    assert result
+    assert result == 8
   end
 
   @tag :skip
