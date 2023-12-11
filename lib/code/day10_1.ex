@@ -1,13 +1,4 @@
 defmodule Advent.D10 do
-  def test_inp,
-    do: """
-    ..F7.
-    .FJ|.
-    SJ.L7
-    |F--J
-    LJ...
-    """
-
   defp is_pipe(spot) do
     case spot do
       "." -> :dirt
